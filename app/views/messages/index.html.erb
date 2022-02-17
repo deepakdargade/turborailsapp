@@ -1,4 +1,4 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green" id="notice"><%= notice %></p>
 
 <h1>Messages (<span id='message_counter'><%= @messages.size %></span>)</h1>
 
@@ -9,5 +9,3 @@
 <div id="messages">
   <%= render @messages %>
 </div>
-
-<%= link_to "New message", new_message_path %>

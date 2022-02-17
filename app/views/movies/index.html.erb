@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Movies</h1>
+
+<%= link_to "New movie", new_movie_path %>
+<br/>
+<br/>
+
+<%#= form_with  url: search_movies_path, method: :post do |form| %>
+  <%#= form.search_field :title_search, oninput: "this.form.requestSubmit()" %>
+<%# end %>
+
+<%= form_with  url: search_movies_path, method: :post, data: {controller: 'debounce', debounce_target: 'form' } do |form| %>
+  <%= form.search_field :title_search, data: { action: 'input->debounce#search' } %>
+<% end %>
+
+<div id='search_count'></div>
+
+<div id="movies">
+  <%= render @movies %>
+</div>
